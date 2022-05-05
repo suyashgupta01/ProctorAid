@@ -1,9 +1,11 @@
+# To activate venv: venv\Scripts\activate.bat
+
 # Multiprocssing for running multiple functions parallely
 # Corey Schafer Multiprocessing: https://www.youtube.com/watch?v=fKl2JW_qrso
 # https://docs.python.org/3/library/multiprocessing.html
 
 import time, multiprocessing as mp # Python's libraries
-import keylogger, face_detection # My libraries
+import keylogger, face_detection, window_monitor # My libraries
 
 def fun():
     while True:
@@ -17,7 +19,8 @@ if __name__ == "__main__":
 
     # create a process
     p1 = mp.Process(target=keylogger.log_keys)
-    p2 = mp.Process(target=fun)
+    exactly_allowed_titles=[], partially_allowed_titles=['Code']
+    p2 = mp.Process(target=window_monitor, args=(exactly_allowed_titles, partially_allowed_titles))
     p3 = mp.Process(target=face_detection.face_monitoring)
 
     # start that process
@@ -29,5 +32,7 @@ if __name__ == "__main__":
     p1.join()
     p2.join()
     p3.join()
+
+    # p1.kill()
 
 
