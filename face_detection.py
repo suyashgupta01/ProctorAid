@@ -109,5 +109,3 @@ def face_monitoring(display = False):
 
     cap.release() # close the camera
     cv2.destroyAllWindows # close the window
-
-face_monitoring()
