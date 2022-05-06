@@ -40,6 +40,6 @@ def check_illegal_window(exactly_allowed_titles=[], partially_allowed_titles=[])
                 sys.exit()
     
 
-check_illegal_window(partially_allowed_titles=['Code', 'Brave']) # working 
+# check_illegal_window(partially_allowed_titles=['Code', 'Brave']) # working 
 # check_illegal_window(exactly_allowed_titles=['window_monitor.py - Final Year Project - Visual Studio Code']) # working
 # print(get_current_window()) # working 
