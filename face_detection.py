@@ -101,10 +101,10 @@ def face_monitoring(display):
                         mp_drawing.draw_detection(image, detection)    
                 cv2.imshow('MediaPipe Face Detection', cv2.flip(image, 1))
             
-            # wait for x to be pressed to break out of loop 
-            key = cv2.waitKey(1) # https://www.geeksforgeeks.org/python-opencv-waitkey-function/
-            if key == ord('x'):
-                break
+                # wait for x to be pressed to break out of loop 
+                key = cv2.waitKey(1) # https://www.geeksforgeeks.org/python-opencv-waitkey-function/
+                if key == ord('x'):
+                    break
 
     cap.release() # close the camera
     cv2.destroyAllWindows # close the window
