@@ -91,15 +91,14 @@ def face_monitoring(display):
             elif num_faces > 1:
                 checker(3, 'multiple_in_frame', cap, face_detection)
 
-            # Draw the face detection annotations on the image.
-            image.flags.writeable = True
-            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-            if results.detections:
-                for detection in results.detections:
-                    mp_drawing.draw_detection(image, detection)
-            
             # Flip the image horizontally for a selfie-view display.
             if display:
+                # Draw the face detection annotations on the image.
+                image.flags.writeable = True
+                image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+                if results.detections:
+                    for detection in results.detections:
+                        mp_drawing.draw_detection(image, detection)    
                 cv2.imshow('MediaPipe Face Detection', cv2.flip(image, 1))
             
             # wait for x to be pressed to break out of loop 
