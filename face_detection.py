@@ -67,8 +67,8 @@ def checker(time_limit, what_to_check, cap, face_detection):
                 print("No one in frame for over", time_limit, "seconds")
                 sys.exit()
 
-def face_monitoring(display = False):
-    """display: True -> Show window of OpenCV else don't show"""
+def face_monitoring(display):
+    """display: True -> Show window of OpenCV, else set False"""
     with mp_face_detection.FaceDetection(
         model_selection=0, min_detection_confidence=0.75) as face_detection:
 

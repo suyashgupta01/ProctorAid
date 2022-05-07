@@ -36,7 +36,7 @@ if __name__ == "__main__":
     p0 = mp.Process(target=browser.open_browser, args = (exam_url,))
     p1 = mp.Process(target=keylogger.log_keys)
     p2 = mp.Process(target=window_monitor.check_illegal_window, args = (exactly_allowed_titles, partially_allowed_titles))
-    p3 = mp.Process(target=face_detection.face_monitoring)
+    p3 = mp.Process(target=face_detection.face_monitoring, args = (False,))
 
 
     # set process as daemon to allow the process to run in the background
