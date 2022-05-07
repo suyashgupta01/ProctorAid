@@ -20,6 +20,7 @@ def read_frame(cap):
         # To improve performance, optionally mark the image as not writeable to
         # pass by reference.
         image.flags.writeable = False
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # convert img to RGB as MediaPipe uses it + looks good to eye!
         return image
         
 def count_faces(results):
@@ -81,7 +82,6 @@ def face_monitoring(display):
             if image is None:
                 break # If loading a video, use 'break' instead of 'continue'.
 
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             results = face_detection.process(image)
             
             num_faces = count_faces(results) # counting number of faces
@@ -94,7 +94,7 @@ def face_monitoring(display):
             if display:
                 # Draw the face detection annotations on the image.
                 image.flags.writeable = True
-                image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+                image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) # convert to back to BGR as open cv uses it 
                 if results.detections:
                     for detection in results.detections:
                         mp_drawing.draw_detection(image, detection)    
