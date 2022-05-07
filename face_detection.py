@@ -17,6 +17,9 @@ def read_frame(cap):
         print("Ignoring empty camera frame.")
         return None
     else:
+        # To improve performance, optionally mark the image as not writeable to
+        # pass by reference.
+        image.flags.writeable = False
         return image
         
 def count_faces(results):
@@ -77,9 +80,6 @@ def face_monitoring(display):
             image = read_frame(cap)
             if image is None:
                 break # If loading a video, use 'break' instead of 'continue'.
-            # To improve performance, optionally mark the image as not writeable to
-            # pass by reference.
-            image.flags.writeable = False
 
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             results = face_detection.process(image)
