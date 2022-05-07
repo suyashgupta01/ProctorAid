@@ -28,7 +28,7 @@ def kill_processes(list_of_processes):
 if __name__ == "__main__":
 
     exactly_allowed_titles=[]; partially_allowed_titles=['Code', 'Brave', 'Chrome']
-    exam_url = "https://suyashgupta.me"
+    exam_url = "https://www.hackerrank.com/test/sample"
     close_browser = True # close browser window if user's endulging in malpractices
     lock_pc = False # lock PC if user's endulging in malpractices
 

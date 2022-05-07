@@ -18,5 +18,3 @@ def open_browser(url):
     time.sleep(5) # wait for browser to load :)
     while(True): # to keep the browser window open, else it'll get garbage collected as it's not reference anywhere else in main.py | https://stackoverflow.com/a/47509389/11684146
        pass
-
-open_browser("https://www.hackerrank.com/test/sample")
