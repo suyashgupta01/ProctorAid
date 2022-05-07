@@ -91,7 +91,6 @@ def face_monitoring(display):
             elif num_faces > 1:
                 checker(3, 'multiple_in_frame', cap, face_detection)
 
-            # Flip the image horizontally for a selfie-view display.
             if display:
                 # Draw the face detection annotations on the image.
                 image.flags.writeable = True
@@ -99,7 +98,7 @@ def face_monitoring(display):
                 if results.detections:
                     for detection in results.detections:
                         mp_drawing.draw_detection(image, detection)    
-                cv2.imshow('MediaPipe Face Detection', cv2.flip(image, 1))
+                cv2.imshow('MediaPipe Face Detection', cv2.flip(image, 1)) # Flip the image horizontally for a selfie-view display
             
                 # wait for x to be pressed to break out of loop 
                 key = cv2.waitKey(1) # https://www.geeksforgeeks.org/python-opencv-waitkey-function/
