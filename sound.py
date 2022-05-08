@@ -1,3 +1,3 @@
 from playsound import playsound
 def samne_dekh():
-    playsound('x.mp3')
+    playsound('files/sounds/x.mp3')

